@@ -22,7 +22,9 @@ jobs:
       with:
         java-version: '17'
         distribution: 'corretto'
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+        server-id: central # Value of the distributionManagement/repository/id field of the pom.xml
+        server-username: BlUmm545
+        server-password: EjR3+WCc1m2eUgdvSJr5161ARBeWin+u0QAvGs1MFF2E
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
