@@ -4,14 +4,40 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.midea</groupId>
+    <groupId>net.m-idea</groupId>
     <artifactId>data-extractor-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <packaging>pom</packaging>
     <modules>
         <module>data-extractor-core</module>
         <module>data-extractor-maven-plugin</module>
     </modules>
+    <name>Data Extractor</name>
+    <description>Utility to extract data from files</description>
+    <url>https://github.com/m-idea/data-extractor</url>
+
+    <developers>
+        <developer>
+            <name>Michele Giacomelli</name>
+            <email>michele.giacomelli+github@gmail.com</email>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/m-idea/data-extractor</url>
+        <connection>scm:git:https://github.com/m-idea/data-extractor.git</connection>
+        <developerConnection>scm:git:https://github.com/m-idea/data-extractor.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -27,7 +53,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>net.midea</groupId>
+                <groupId>net.m-idea</groupId>
                 <artifactId>data-extractor-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
