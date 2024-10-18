@@ -27,13 +27,10 @@ jobs:
         server-password: MAVEN_PASSWORD
         gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
         gpg-passphrase: MAVEN_GPG_PASSPHRASE
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy
+      run: mvn -B deploy -DskipTests
       env:
         GITHUB_TOKEN: ${{ github.token }}
         MAVEN_USERNAME: ${{ secrets.MVNCENTRAL_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MVNCENTRAL_TOKEN }}
-        MAVEN_GPG_PASSPHRASE: ${{ secrets.MVNCENTRAL_TOKEN }}
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_SIGNING_KEY_PASSWORD }}
