@@ -23,9 +23,8 @@ jobs:
         java-version: '17'
         distribution: 'corretto'
         server-id: central # Value of the distributionManagement/repository/id field of the pom.xml
-        server-username: BlUmm545
-        server-password: EjR3+WCc1m2eUgdvSJr5161ARBeWin+u0QAvGs1MFF2E
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
+        server-username: MAVEN_USERNAME
+        server-password: MAVEN_PASSWORD
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
@@ -34,3 +33,5 @@ jobs:
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
+        MAVEN_USERNAME: ${{ secrets.MVNCENTRAL_USERNAME }}
+        MAVEN_PASSWORD: ${{ secrets.MVNCENTRAL_TOKEN }}
