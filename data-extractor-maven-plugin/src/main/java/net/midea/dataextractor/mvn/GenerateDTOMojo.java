@@ -18,6 +18,9 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Mojo(name = "generate-dto", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class GenerateDTOMojo extends AbstractMojo {
@@ -52,6 +55,7 @@ public class GenerateDTOMojo extends AbstractMojo {
             for (DtoDescriptorRecord footer : descriptor.getTrailers()) {
                 generateSource(footer);
             }
+            getLog().info("adding source root " + targetDir);
             project.addCompileSourceRoot(targetDir);
         } catch (IOException e) {
             getLog().error("Failed to read descriptor file", e);
@@ -83,7 +87,10 @@ public class GenerateDTOMojo extends AbstractMojo {
 
     private Type mapType(DtoFieldType type) {
         return switch (type) {
-            case DATE -> Instant.class;
+            case DATE -> LocalDate.class;
+            case TIME -> LocalTime.class;
+            case DATETIME -> LocalDateTime.class;
+            case INSTANT -> Instant.class;
             case BINARY -> byte[].class;
             case NUMBER -> BigDecimal.class;
             default -> String.class;

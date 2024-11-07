@@ -6,6 +6,9 @@ public enum DtoFieldType {
     STRING,
     NUMBER,
     DATE,
+    TIME,
+    DATETIME,
+    INSTANT,
     BINARY;
 
 
