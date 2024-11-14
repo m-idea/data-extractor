@@ -113,6 +113,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
                 </configuration>
             </plugin>
             <plugin>
@@ -151,6 +152,11 @@
                         <arg>loopback</arg>
                     </gpgArguments>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.1.1</version>
             </plugin>
         </plugins>
     </build>
